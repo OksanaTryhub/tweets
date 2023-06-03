@@ -5,9 +5,12 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    // Перенаправление на основную страницу
-    window.location.replace("/tweets-test");
-  </script>
+  (function () {
+    var redirectPath = window.location.pathname.replace(/\/tweets-test\/?/, '');
+    var redirectUrl = window.location.origin + '/tweets-test/#' + redirectPath;
+    window.location.replace(redirectUrl);
+  })();
+</script>
 </head>
 
 <body>
