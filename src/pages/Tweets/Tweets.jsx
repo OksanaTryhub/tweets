@@ -19,7 +19,7 @@ const Tweets = () => {
   const [generalTotalPages, setGeneralTotalPages] = useState(0);
 
   const [page, setPage] = useState(searchParams.get('page') || 1);
-  const [filter, setFilter] = useState(searchParams.get('filter') || 'show all');
+  const [filter, setFilter] = useState(searchParams.get('filter') || 'show-all');
   // const page = searchParams.get('page') || 1;
   // const filter = searchParams.get('filter') || 'show all';
 
@@ -55,7 +55,7 @@ const Tweets = () => {
 
     const savedIds = load('followings');
     console.log("savedIdsFilter", savedIds)
-    if (filter === 'show all') {
+    if (filter === 'show-all') {
       setFilteredUsers(users)
     }
     if (filter === 'followings') {

@@ -11,7 +11,7 @@ const TweetFilterDropdown = ({ onFilterChange, initialValue }) => {
 
   return (
     <select value={selectedOption} onChange={handleOptionChange}>
-      <option value="show all">Show All</option>
+      <option value="show-all">Show All</option>
       <option value="follow">Follow</option>
       <option value="followings">Followings</option>
     </select>
