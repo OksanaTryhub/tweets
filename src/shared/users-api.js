@@ -6,7 +6,6 @@ const instance = axios.create({
 
 export const getTotalPages = async () => {
   const {data} = await instance.get('/');
-  console.log("DATA", data.length)
   return Math.round(data.length / 3)
  }
 

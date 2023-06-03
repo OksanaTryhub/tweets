@@ -5,7 +5,7 @@ import UserCard from '../../components/Card/Card';
 
 
 const Tweets = () => {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   const [loadedUsers, setLoadedUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [followings, setFollowings] = useState([]);
@@ -25,11 +25,17 @@ const Tweets = () => {
         const data = await api.getUsers(page);
  
         console.log(data.length)
-        setUsers(data);
-        setLoadedUsers(prevState => [...prevState, ...data]);
+        // setUsers(data);
+        page === 1
+        ? setLoadedUsers(data)
+          : setLoadedUsers(prevState => {
+            console.log("prevState", prevState)
+            console.log("DATA", data)
+            return [...prevState, ...data]
+          });
 
-        const savedFollowings = JSON.parse(localStorage.getItem('followings')) || [];
-        setFollowings(savedFollowings);
+        // const savedFollowings = JSON.parse(localStorage.getItem('followings')) || [];
+        // setFollowings(savedFollowings);
 
         // if (data.length <= 3) {
         //   setShowLoadMore(false);
@@ -45,10 +51,6 @@ const Tweets = () => {
     // }
   }, [page]);
  
-  useEffect(() => {
-    // Сохранение данных в localStorage при изменении состояния followings
-    localStorage.setItem('followings', JSON.stringify(followings));
-  }, [followings]);
 
   const updateUserFollowers = async (id, data) => {
     try {
