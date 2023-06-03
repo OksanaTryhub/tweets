@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const TweetFilterDropdown = ({ onFilterChange, initialValue }) => {
+const Filter = ({ onFilterChange, initialValue }) => {
   const [selectedOption, setSelectedOption] = useState(initialValue);
 
   const handleOptionChange = (event) => {
@@ -18,4 +19,9 @@ const TweetFilterDropdown = ({ onFilterChange, initialValue }) => {
   );
 };
 
-export default TweetFilterDropdown;
+export default Filter;
+
+Filter.propTypes = {
+  onFilterChange: PropTypes.func.isRequired,
+  initialValue: PropTypes.string.isRequired,
+};

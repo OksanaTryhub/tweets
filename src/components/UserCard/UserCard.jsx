@@ -1,14 +1,13 @@
-//UserCard.jsx
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import styles from './card.module.css'
+import styles from './userCard.module.css'
 import { load } from '../../shared/storage';
 
 const UserCard = ({ id, user, avatar, tweets, followers=0, handleUnfollowClick, handleFollowClick }) => {
   const [isFollowing, setIsFollowing] = useState(() => {
         const savedIds = load('followings');
-       return !savedIds.includes(id) ? false : true
+        return !savedIds.includes(id) ? false : true
   });
 
   const handleButtonClick  = async () => {
@@ -36,9 +35,11 @@ const UserCard = ({ id, user, avatar, tweets, followers=0, handleUnfollowClick, 
 export default UserCard 
 
 UserCard.propTypes = {
+  id: PropTypes.string.isRequired,
   user: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   tweets: PropTypes.number.isRequired,
   followers: PropTypes.number.isRequired,
-  // onClick: PropTypes.func.isRequired,
+  handleUnfollowClick: PropTypes.func.isRequired,
+  handleFollowClick: PropTypes.func.isRequired,
 };
