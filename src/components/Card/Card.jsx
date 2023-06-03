@@ -8,7 +8,6 @@ import { load } from '../../shared/storage';
 const UserCard = ({ id, user, avatar, tweets, followers=0, handleUnfollowClick, handleFollowClick }) => {
   const [isFollowing, setIsFollowing] = useState(() => {
         const savedIds = load('followings');
-          console.log("savedIds in CARD", savedIds)
        return !savedIds.includes(id) ? false : true
   });
 
