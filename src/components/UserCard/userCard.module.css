@@ -6,7 +6,7 @@
   max-height: 460px;
   flex-shrink: 0;
   margin-bottom: 20px;
-  background-image: url('images/bg.png'),
+  background-image: url('/public/images/bg.png'),
     linear-gradient(114.99deg, #471ca9 -0.99%, #5736a3 54.28%, #4b2a99 78.99%);
   background-size: 308px, contain;
   background-repeat: no-repeat;
