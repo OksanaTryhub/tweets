@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
-import {
-  Link,
-  useSearchParams
-} from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+
 import * as api from '../../shared/users-api';
-import UserCard from '../../components/UserCard/UserCard';
 import { save, load } from '../../shared/storage'
+
+import UserList from '../../components/UserList/UserList'
 import Filter from '../../components/FIlter/Filter';
 
+import styles from './tweets.module.css'
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
@@ -38,7 +38,7 @@ const Tweets = () => {
       }
     }
     fetchAllUsers()
-  }, [])
+  }, [page])
 
   useEffect(() => {
     searchParams.set('page', page)
@@ -63,7 +63,7 @@ const Tweets = () => {
       } else {
         setShowLoadMore(false)
       }
-  }, [filter, page, searchParams, setSearchParams, users])
+  }, [filter, filteredUsers.length, page, searchParams, setSearchParams, users])
 
   const updateUserFollowers = async (id, data) => {
     try {
@@ -134,28 +134,16 @@ const Tweets = () => {
   };
 
   return (
-    <div>
-      <h1>Tweets</h1>
+    <div className={styles.container}>
       <Filter onFilterChange={handleFilterChange} initialValue={filter}/>
       {loading && <p>...Loading</p>}
-      {filteredUsers.length && !loading ? (
-        filteredUsers.slice(0,page*3).map(({ id, user, tweets, followers, avatar }) => (
-          <UserCard
-            key={id}
-            id={id}
-            user={user}
-            tweets={tweets}
-            followers={followers}
-            avatar={avatar}
-            handleUnfollowClick={handleUnfollowClick}
-            handleFollowClick={handleFollowClick}
-          />
-        ))
-      ) : (
-        <p>NOBODY</p>
-      )}
+      <UserList
+        users={filteredUsers}
+        loading={loading}
+        page={page}
+        handleUnfollowClick={handleUnfollowClick}
+        handleFollowClick={handleFollowClick} />
       {showLoadMore && <button onClick={loadMoreUsers}>Load more</button>}
-
       <button>
         <Link to="/">Back</Link>
       </button>
