@@ -39,7 +39,7 @@ UserList.propTypes = {
     })
   ).isRequired,
   loading: PropTypes.bool.isRequired,
-  page: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  page: PropTypes.number.isRequired,
   handleUnfollowClick: PropTypes.func.isRequired,
   handleFollowClick: PropTypes.func.isRequired,
 };

@@ -20,6 +20,9 @@ const UserCard = ({ id, user, avatar, tweets, followers=0, handleUnfollowClick, 
     }
   };
 
+  const formattedFollowers = followers.toLocaleString();
+  const formattedTweets = tweets.toLocaleString();
+
   return (
     <li className={styles.card}>
         <div className={styles.divider} />
@@ -30,8 +33,8 @@ const UserCard = ({ id, user, avatar, tweets, followers=0, handleUnfollowClick, 
         <img className={styles.avatar} src={avatar} alt={user} />
 
       <div className={styles.infoWrapper}>
-        <h3 className={styles.tweets}>{tweets} TWEETS</h3>
-        <h4 className={styles.followers}>{followers} FOLLOWERS</h4>
+        <h3 className={styles.tweets}>{formattedTweets} TWEETS</h3>
+        <h4 className={styles.followers}>{formattedFollowers} FOLLOWERS</h4>
         <button onClick={handleButtonClick } className={`${styles.button} ${isFollowing ? styles.following : styles.follow}`}>
           {isFollowing ? 'FOLLOWING' : 'FOLLOW'}
         </button>

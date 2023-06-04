@@ -18,7 +18,7 @@ const Tweets = () => {
   const [showLoadMore, setShowLoadMore] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const [page, setPage] = useState(searchParams.get('page') || 1);
+  const [page, setPage] = useState(parseInt(searchParams.get('page')) || 1);
   const [filter, setFilter] = useState(searchParams.get('filter') || 'show-all');
 
   const navigate = useNavigate();
