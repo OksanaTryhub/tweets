@@ -1,7 +1,18 @@
-.userList {
+/* .userList {
   display: flex;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   gap: 15px;
 
+} */
+
+.userList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+}
+
+.userList > * {
+  flex-grow: 1; /* Позволяет элементам занимать доступное пространство по высоте */
 }

@@ -1,21 +1,31 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const Filter = ({ onFilterChange, initialValue }) => {
-  const [selectedOption, setSelectedOption] = useState(initialValue);
+import styles from './filter.module.css'
+
+const Filter = ({ onFilterChange }) => {
+  const [isFilterVisible, setFilterVisible] = useState(false);
+
+  const handleClick = () => {
+    setFilterVisible(prevState => !prevState);
+  };
 
   const handleOptionChange = (event) => {
     const selectedValue = event.target.value;
-    setSelectedOption(selectedValue);
     onFilterChange(selectedValue);
   };
 
   return (
-    <select value={selectedOption} onChange={handleOptionChange}>
-      <option value="show-all">Show All</option>
-      <option value="follow">Follow</option>
-      <option value="followings">Followings</option>
-    </select>
+    <div>
+      <button onClick={handleClick} className={styles.filterBtn}>Filter</button>
+      {isFilterVisible &&
+        <div className={styles.selectWrapper}>
+            <button value="show-all" onClick={handleOptionChange} className={styles.selectBtn}>Show All</button>
+            <button value="follow" onClick={handleOptionChange} className={styles.selectBtn}>Follow</button>
+            <button value="followings" onClick={handleOptionChange} className={styles.selectBtn}>Followings</button>
+        </div>
+      }
+    </div>
   );
 };
 

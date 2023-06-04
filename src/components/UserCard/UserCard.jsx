@@ -22,12 +22,20 @@ const UserCard = ({ id, user, avatar, tweets, followers=0, handleUnfollowClick, 
 
   return (
     <li className={styles.card}>
-      <img className={styles.avatar} src={avatar} alt={user} />
-      <h3 className={styles.tweets}>{tweets} TWEETS</h3>
-      <h4 className={styles.followers}>{followers} FOLLOWERS</h4>
-      <button onClick={handleButtonClick }>
-        {isFollowing ? 'FOLLOWING' : 'FOLLOW'}
-      </button>
+        <div className={styles.divider} />
+        <div className={styles.outerRing}>
+          <div className={styles.innerRing}></div>
+        </div>
+        <img className={styles.logo} src='images/logo.png' />
+        <img className={styles.avatar} src={avatar} alt={user} />
+
+      <div className={styles.infoWrapper}>
+        <h3 className={styles.tweets}>{tweets} TWEETS</h3>
+        <h4 className={styles.followers}>{followers} FOLLOWERS</h4>
+        <button onClick={handleButtonClick } className={`${styles.button} ${isFollowing ? styles.following : styles.follow}`}>
+          {isFollowing ? 'FOLLOWING' : 'FOLLOW'}
+        </button>
+     </div>
     </li>
   );
 };

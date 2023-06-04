@@ -1,0 +1,26 @@
+.container {
+  position: relative;
+}
+
+.filterBtn{
+width: 200px;
+text-align: start;
+}
+
+.selectBtn {
+  border: none;
+  outline: none;
+  text-align: start;
+   &:hover {
+    background-color: brown;
+   }
+   &:active {
+    background-color: blueviolet;
+   }
+}
+
+.selectWrapper {
+ display: flex;
+ flex-direction: column;
+ width: 200px;
+}
