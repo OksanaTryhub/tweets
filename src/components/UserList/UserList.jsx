@@ -1,32 +1,33 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import UserCard from '../UserCard/UserCard'
-import styles from './userList.module.css'
+import UserCard from "../UserCard/UserCard";
+import styles from "./userList.module.css";
 
-const UserList = ({users, loading, page, handleUnfollowClick, handleFollowClick}) => {
+const UserList = ({ users, loading, page, handleUnfollowClick, handleFollowClick }) => {
   return (
     <div className={styles.userList}>
       {!users.length && !loading && <p>There are no tweets yet</p>}
-      {users.length && !loading && (
-        users.slice(0, page * 3).map(({ id, user, tweets, followers, avatar }) => (
-          <UserCard
-            key={id}
-            id={id}
-            user={user}
-            tweets={tweets}
-            followers={followers}
-            avatar={avatar}
-            handleUnfollowClick={handleUnfollowClick}
-            handleFollowClick={handleFollowClick}
-          />
-        ))
-      )
-      }
+      {users.length &&
+        !loading &&
+        users
+          .slice(0, page * 3)
+          .map(({ id, user, tweets, followers, avatar }) => (
+            <UserCard
+              key={id}
+              id={id}
+              user={user}
+              tweets={tweets}
+              followers={followers}
+              avatar={avatar}
+              handleUnfollowClick={handleUnfollowClick}
+              handleFollowClick={handleFollowClick}
+            />
+          ))}
     </div>
-  )
-}
+  );
+};
 
-export default UserList
+export default UserList;
 
 UserList.propTypes = {
   users: PropTypes.arrayOf(
