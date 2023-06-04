@@ -105,7 +105,6 @@ height: 22px;
   justify-content: center;
   align-items: center;
   color: #EBD8FF;
-  
 }
 
 .tweets {
@@ -136,7 +135,8 @@ height: 22px;
   line-height: 1.22;
   text-transform: uppercase;
   color: #373737;
-
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
     &:focus {
       outline: none;
     }
