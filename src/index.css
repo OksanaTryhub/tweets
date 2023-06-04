@@ -36,8 +36,12 @@ ol {
   padding: 0;
 }
 
-li {
+li{
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 img {

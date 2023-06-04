@@ -6,8 +6,9 @@ import styles from './userList.module.css'
 const UserList = ({users, loading, page, handleUnfollowClick, handleFollowClick}) => {
   return (
     <div className={styles.userList}>
-      {users.length && !loading ? (
-        users.slice(0,page*3).map(({ id, user, tweets, followers, avatar }) => (
+      {!users.length && !loading && <p>There are no tweets yet</p>}
+      {users.length && !loading && (
+        users.slice(0, page * 3).map(({ id, user, tweets, followers, avatar }) => (
           <UserCard
             key={id}
             id={id}
@@ -19,11 +20,9 @@ const UserList = ({users, loading, page, handleUnfollowClick, handleFollowClick}
             handleFollowClick={handleFollowClick}
           />
         ))
-      ) : (
-        <p>NOBODY</p>
-      )}
+      )
+      }
     </div>
-
   )
 }
 

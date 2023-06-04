@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import * as api from '../../shared/users-api';
 import { save, load } from '../../shared/storage'
@@ -8,6 +8,8 @@ import UserList from '../../components/UserList/UserList'
 import Filter from '../../components/FIlter/Filter';
 
 import styles from './tweets.module.css'
+import Loader from '../../components/Loader/Loader';
+import { errorMessage } from '../../shared/errorMessage';
 
 const Tweets = () => {
   const [users, setUsers] = useState([]);
@@ -18,6 +20,8 @@ const Tweets = () => {
 
   const [page, setPage] = useState(searchParams.get('page') || 1);
   const [filter, setFilter] = useState(searchParams.get('filter') || 'show-all');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllUsers = async () => {
@@ -31,8 +35,8 @@ const Tweets = () => {
         if (page < totalPages) {
           setShowLoadMore(true)
         }
-      } catch (error) {
-        console.log(error)
+      } catch (error) { 
+        errorMessage(error)
       } finally {
         setLoading(false);
       }
@@ -133,20 +137,25 @@ const Tweets = () => {
     setFilter(selectedOption)
   };
 
+  const homeRedirect = () => {
+    navigate('/');
+  }
+
   return (
     <div className={styles.container}>
+      <div className={styles.buttonWrapper}>
+        <button className={styles.backBtn} onClick={homeRedirect}> ← Back 
+      </button>
       <Filter onFilterChange={handleFilterChange} initialValue={filter}/>
-      {loading && <p>...Loading</p>}
+      </div>
+      {loading && <Loader />}
       <UserList
         users={filteredUsers}
         loading={loading}
         page={page}
         handleUnfollowClick={handleUnfollowClick}
         handleFollowClick={handleFollowClick} />
-      {showLoadMore && <button onClick={loadMoreUsers}>Load more</button>}
-      <button>
-        <Link to="/">Back</Link>
-      </button>
+      {showLoadMore && <button onClick={loadMoreUsers} className={styles.loadMoreBtn}>Load more</button>}
     </div>
   );
 };

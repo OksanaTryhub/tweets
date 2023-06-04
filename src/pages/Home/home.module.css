@@ -1,0 +1,112 @@
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 150px;
+  z-index: 10;
+}
+
+.text {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 50px;
+  margin-bottom: 80px;
+  line-height: 1.5;
+}
+.button{ 
+  width: 196px;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  padding: 14px 39px;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.22;
+  text-transform: uppercase;
+  color: #373737;
+  cursor: pointer;
+  background-color: #8e82dd;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    background-color: #4B2A99;
+    color: #EBD8FF;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+
+}
+
+.flyWrap {
+  position: fixed;
+  bottom: 0;
+  animation: flyUp 8s linear infinite;
+}
+
+.flyWrap1{
+  right: 50px;
+  animation-delay: 2s;
+}
+
+.flyWrap2 {
+  left: 50px;
+}
+
+.flyWrap3 {
+  left: 250px;
+  animation-delay: 3s;
+}
+
+.flyWrap4 {
+  position: fixed;
+  top: 0;
+  animation: flyUp 8s linear infinite;
+  right: 250px; 
+}
+
+@keyframes flyUp {
+0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+.flyCard1 {
+  width: 100px;
+  transform: rotate(-30deg);
+  
+}
+
+.flyCard2 {
+  width: 100px;
+  transform: rotate(30deg);
+}
+
+.flyCard3 {
+  width: 100px;
+  transform: rotate(-40deg);
+}
+.flyCard4 {
+  width: 100px;
+  transform: rotate(-40deg);
+}
