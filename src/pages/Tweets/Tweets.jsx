@@ -74,7 +74,7 @@ const Tweets = () => {
       const updatedUser = await api.updateUserFollowers(id, data);
       return updatedUser.followers;
     } catch (error) {
-      console.error('Error:', error);
+      errorMessage(error);
       throw error;
     }
   };
@@ -98,9 +98,8 @@ const Tweets = () => {
       updateUserFollowers(tweetId, {
         followers: updatedTweets.find((tweet) => tweet.id === tweetId).followers,
       })
- 
     } catch (error) {
-      console.error(error);
+      errorMessage(error);
     }
   };
 
@@ -124,7 +123,7 @@ const Tweets = () => {
       })
  
     } catch (error) {
-      console.error(error);
+      errorMessage(error)
     }
   };
   
