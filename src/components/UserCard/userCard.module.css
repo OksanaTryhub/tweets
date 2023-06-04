@@ -143,14 +143,14 @@ height: 22px;
     }
 }
 
-.following {
+.follow {
   background-color: #ebd8ff;
   &:hover {
       box-shadow: 0 8px 10px rgba(235, 216, 255, 0.25), 0 5px 5px rgba(235, 216, 255, 0.22);
     }
 }
 
-.follow {
+.following {
   background-color: #5cd3a8;
   &:hover {
       box-shadow: 0 8px 10px rgba(92, 211, 168, 0.25), 0 5px 5px rgba(92, 211, 168, 0.22);
