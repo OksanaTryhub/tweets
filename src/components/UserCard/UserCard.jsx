@@ -22,8 +22,7 @@ const UserCard = ({ id, user, avatar, tweets, followers=0, handleUnfollowClick, 
 
   const formattedFollowers = followers.toLocaleString('en-US');
   const formattedTweets = tweets.toLocaleString('en-US');
-  console.log("formattedTweets", formattedTweets);
-
+  
   return (
     <li className={styles.card}>
         <div className={styles.divider} />
