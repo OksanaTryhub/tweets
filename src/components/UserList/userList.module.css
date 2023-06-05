@@ -7,3 +7,19 @@
 .userList > * {
   flex-grow: 1; /* Позволяет элементам занимать доступное пространство по высоте */
 }
+
+.text{
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 24px; 
+  color: #4B2A99;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  
+}
