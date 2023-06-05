@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import styles from './home.module.css'
 
 const Home = () => {
@@ -9,9 +9,9 @@ const Home = () => {
   }
   return (
     <div className={styles.container}>
-      <div>
+      <Link to='https://goit.global/ua/'>
         <img className={styles.logo} src='images/logo.png'/>
-      </div>
+      </Link>
       <div className={styles.text}>
         <h1>Welcome to our social media application for interesting leisure!</h1>
         <h2>Join us and embark on your journey into the captivating world of tweets right now!</h2>
